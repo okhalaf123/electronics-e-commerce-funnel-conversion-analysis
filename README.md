@@ -121,11 +121,7 @@ These cleaning steps prepare the data for session-level funnel analysis, product
 
 ## Executive Summary
 
-The largest funnel issue is converting product interest into cart intent: out of 488,150 view sessions, only 41,220 reached cart, resulting in an 8.44% view-to-cart rate. Cart-stage performance is also important because cart completion and abandonment are almost evenly split, with 50.30% of cart sessions reaching purchase and 49.70% abandoning. :contentReference[oaicite:0]{index=0}
-
-For a marketing or e-commerce manager, the main priority should be improving product-page and category-level conversion rather than simply driving more traffic. The electronics category, Samsung, and Panasonic all attracted meaningful interest but converted below their benchmarks, while the strongest product-level action is to protect existing revenue drivers, especially high-performing computer products that already account for most product revenue. :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
-
-Product promotion opportunities should be treated as small tests, not large campaigns, because many “Promote” and “Cart Friction” products have low event volume. The safest recommendation is to protect proven revenue drivers, investigate high-interest conversion gaps, and validate low-volume product opportunities before investing heavily in promotion. :contentReference[oaicite:3]{index=3}
+The biggest funnel drop-off occurs before shoppers add products to cart: only 8.44% of view sessions reached cart, while cart completion and abandonment were almost evenly split at 50.30% and 49.70%. The main conversion gaps are not caused by lack of traffic, but by weaker conversion in specific high-interest areas, especially the electronics category and the Samsung and Panasonic brands. The best immediate action is to protect proven revenue-driving products, especially high-performing computer products, while treating smaller promote and cart-friction segments as testing opportunities rather than confirmed growth drivers.
 
 ### Category 1: Funnel Drop-Off
 
