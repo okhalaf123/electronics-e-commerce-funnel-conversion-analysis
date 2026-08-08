@@ -118,3 +118,51 @@ The `cleaned_events` table was created from `raw_events` using the following ste
 - Created a flag for sessions linked to multiple users.
 
 These cleaning steps prepare the data for session-level funnel analysis, product opportunity analysis, category analysis, and brand analysis.
+
+### Category 1: Funnel Drop-Off
+
+**Supporting materials:**  
+- SQL query output: `[link to funnel drop-off query outputs]`  
+- Dashboard screenshot: `[link to Funnel Overview dashboard screenshot]`
+
+This section answers:
+
+**Where does the shopping funnel lose the most users?**
+
+The session-level funnel was built from `session_summary`, where each row represents one valid, single-user session. Sessions with missing `user_session` values or session IDs linked to multiple users were excluded from the main funnel analysis so each session more reliably represents one user journey.
+
+#### Insight 1: The largest drop-off happens before users add products to cart.
+
+The dataset contained **490,184 valid sessions**. Of those, **488,150 sessions included at least one product view**, but only **41,220 sessions included an add-to-cart event**. This means only **8.44% of view sessions reached cart**.
+
+This shows that the largest funnel loss happens between product viewing and adding to cart. Most shoppers are reaching product pages, but only a small share show stronger purchase intent by adding an item to cart.
+
+This suggests the main opportunity is improving the transition from product interest to cart intent. Product pages, pricing, product descriptions, product images, recommendations, and category navigation are likely important areas to investigate.
+
+#### Insight 2: Cart completion and cart abandonment are almost evenly split.
+
+Out of **41,220 cart sessions**, **20,733 sessions included both a cart event and a purchase event**. This gives a corrected **cart-to-purchase completion rate of 50.30%**.
+
+At the same time, **20,487 cart sessions did not lead to a purchase**, resulting in a **cart abandonment rate of 49.70%**.
+
+This means cart activity is a meaningful signal of purchase intent, but nearly half of cart sessions still fail to convert. The main funnel issue is still the low view-to-cart rate, but cart abandonment is also large enough to justify a deeper review of product-level friction.
+
+#### Insight 3: Revenue and conversion improved over time, but cart abandonment also increased.
+
+Session conversion improved from **4.11% in September 2020** to **5.51% in February 2021**. Revenue also increased from **$101,195.51 in September 2020** to **$1.33M in February 2021**, with the highest monthly revenue in **January 2021 at $1.50M**.
+
+Average revenue per purchase session also rose sharply over the period. It increased from **$145.19 in September 2020** to **$276.76 in January 2021** and **$275.58 in February 2021**.
+
+However, cart abandonment also increased later in the period. Cart abandonment was around **48% from September through November**, then rose to **51.25% in January** and **51.73% in February**.
+
+This suggests that later months generated stronger revenue and higher-value purchase sessions, but also had more cart friction. The business earned more from converted sessions, while a larger share of cart sessions still failed to complete a purchase.
+
+#### Insight 4: Morning and midday sessions converted better than late-night sessions.
+
+Hourly results show that session conversion was lowest late at night and early in the day. Conversion was **3.74% at hour 0** and **3.66% at hour 1**.
+
+Conversion improved during the morning. The strongest hourly conversion rate was **5.47% at hour 9**, followed by **5.44% at hour 10** and **5.33% at hours 6 and 11**.
+
+Late-night sessions also had higher cart abandonment. Cart abandonment was **54.63% at hour 0** and **54.51% at hour 21**, compared with lower abandonment during several morning hours.
+
+This suggests that shopper intent may be stronger during morning and midday sessions. This pattern should be interpreted carefully because the dataset does not include marketing campaigns, traffic sources, or promotional timing, but it is still useful for dashboard exploration.
