@@ -166,3 +166,79 @@ Conversion improved during the morning. The strongest hourly conversion rate was
 Late-night sessions also had higher cart abandonment. Cart abandonment was **54.63% at hour 0** and **54.51% at hour 21**, compared with lower abandonment during several morning hours.
 
 This suggests that shopper intent may be stronger during morning and midday sessions. This pattern should be interpreted carefully because the dataset does not include marketing campaigns, traffic sources, or promotional timing, but it is still useful for dashboard exploration.
+
+### Category 2: Conversion Gaps
+
+**Supporting materials:**  
+- SQL query output: `[link to conversion gap query outputs]`  
+- Dashboard screenshot: `[link to Conversion Gaps dashboard screenshot]`
+
+This section answers:
+
+**Which categories or brands generate high interest but weak conversion?**
+
+Category and brand conversion gaps were analyzed using event-level product behavior from `category_summary` and `brand_summary`. The main conversion metric used in this section is **view-to-purchase rate**, calculated as:
+
+`purchase events / view events`
+
+This metric shows how often product interest turns into purchases. The gap analysis excludes `unknown` category and brand values because they are not actionable business labels.
+
+#### Insight 1: Electronics is the main category conversion gap.
+
+The `electronics` category was the only category flagged as a gap category. It generated **155,163 views**, representing **26.98% of known-category views**, but converted at only **4.36%**.
+
+The known-category conversion benchmark was about **5.18%**, meaning `electronics` converted at **84% of the known-category benchmark**. It also generated **6,768 purchases** and **$450,348.57 in revenue**, so the weak conversion is attached to a meaningful volume of shopper interest.
+
+This makes `electronics` a priority category to investigate. The issue is not lack of visibility. The category receives substantial browsing activity, but that interest does not convert as efficiently as expected.
+
+#### Insight 2: Computers drove the most traffic and revenue, while electronics had high interest but weaker efficiency.
+
+`computers` was the largest known category by views and revenue, with **272,855 views**, **16,870 purchases**, and **$3.73M in revenue**. Its view-to-purchase rate was **6.18%**, and revenue per view was **$13.67**.
+
+By comparison, `electronics` had **155,163 views**, **6,768 purchases**, and **$450,348.57 in revenue**, but its view-to-purchase rate was only **4.36%**, with revenue per view of **$2.90**.
+
+This gap suggests that `electronics` receives strong shopper interest but produces less value per view than the strongest category. The business should review whether product mix, pricing, product detail quality, or category navigation is limiting conversion in this category.
+
+#### Insight 3: Some low-conversion categories are less important because their traffic is smaller.
+
+The lowest-converting known category was `country_yard`, with a **0.75%** view-to-purchase rate. However, it had only **3,072 views** and **23 purchases**, so its business impact is limited.
+
+Other low-conversion categories included:
+
+- `appliances`: **38,945 views**, **904 purchases**, **2.32% conversion**
+- `accessories`: **1,953 views**, **56 purchases**, **2.87% conversion**
+- `auto`: **32,860 views**, **1,091 purchases**, **3.32% conversion**
+- `construction`: **28,683 views**, **999 purchases**, **3.48% conversion**
+
+These categories show weaker conversion, but they are not all equally important. `appliances`, `auto`, and `construction` have enough traffic to investigate, while smaller categories such as `country_yard` and `accessories` should be lower priority unless the business is specifically trying to grow those areas.
+
+#### Insight 4: Samsung and Panasonic are the main high-interest brand gaps.
+
+The brand gap analysis flagged **Samsung** and **Panasonic** as high-interest brands with weak conversion.
+
+Together, these gap brands accounted for about **33K views**, a combined conversion rate of about **3.13%**, and roughly **$110K in revenue**.
+
+Samsung had **21,402 views**, ranking **5th** among known brands by view volume. However, it converted at only **3.54%**, below the top-50 known-brand median conversion rate of **4.73%**. Samsung’s performance ratio was **0.75**, meaning it converted at about 75% of the benchmark.
+
+Panasonic had **11,326 views**, ranking **9th** by view volume. Its conversion rate was only **2.37%**, with a performance ratio of **0.50**. This means Panasonic converted at about half of the top-50 known-brand benchmark.
+
+These brands have enough shopper interest to matter, but their conversion rates are weak compared with other high-volume brands. They should be reviewed for product mix, pricing, product page quality, availability, or whether shoppers are comparing but choosing competing brands.
+
+#### Insight 5: Stronger high-volume brands show that high traffic can convert well.
+
+Not all high-view brands had weak conversion. Several high-interest brands converted much better than Samsung and Panasonic.
+
+Examples include:
+
+- `msi`: **19,941 views**, **1,788 purchases**, **8.97% conversion**, **$643,492.34 revenue**
+- `gigabyte`: **22,759 views**, **1,741 purchases**, **7.65% conversion**, **$556,183.04 revenue**
+- `canon`: **16,034 views**, **1,045 purchases**, **6.52% conversion**, **$137,964.79 revenue**
+- `sirius`: **9,767 views**, **742 purchases**, **7.60% conversion**
+
+This shows that the conversion gap is not simply caused by high traffic volume. Some brands with high view counts still convert well. Samsung and Panasonic stand out because they receive meaningful traffic but convert below the benchmark.
+
+#### Insight 6: Long-tail brands show weak conversion, but most have lower business impact.
+
+The bottom brand conversion table shows several brands with very weak view-to-purchase rates. For example, `hammer` had **2,327 views** and **0 purchases**, while `thomas`, `nokia`, `honor`, `scarlett`, and `lexmark` all had conversion rates below **1%**.
+
+These brands may have product-level issues, but they are lower priority than Samsung and Panasonic because their view volume and revenue are smaller. They are useful for monitoring, but the main conversion gap analysis should focus first on high-interest brands where weak conversion has larger business impact.
