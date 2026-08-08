@@ -376,3 +376,111 @@ This protects the products already driving most of the observed revenue.
 - Use these segments as exploratory signals rather than final product investment decisions.
 
 This keeps the product opportunity analysis useful while avoiding over-investment in products with limited supporting data.
+
+## Assumptions & Caveats
+
+Several assumptions were made to clean the data, build funnel metrics, and interpret product opportunities. These caveats should be considered when reading the dashboard and recommendations.
+
+---
+
+### The analysis uses the actual dates in the data, not the dataset description
+
+The dataset description said the data covered **October 2019 to February 2020**, but profiling showed the imported data covered **September 2020 to February 2021**.
+
+Because of this, all time-based analysis uses the actual timestamps found in the data. Any monthly trend findings should be interpreted as trends within the observed data period, not the period listed in the dataset description.
+
+---
+
+### The funnel is based on observable product events only
+
+The dataset includes product-level events such as `view`, `cart`, `remove_from_cart`, and `purchase`. It does not include marketing channels, ad spend, impressions, clicks, checkout steps, payment status, shipping cost, inventory status, or order IDs.
+
+Because of this, the project analyzes the observable product funnel:
+
+`View → Cart → Purchase`
+
+Metrics such as ROAS, CAC, checkout abandonment, payment failure rate, true average order value, and marketing channel conversion could not be calculated.
+
+---
+
+### Session-level analysis excludes unreliable sessions
+
+The session-level funnel uses `session_summary`, where each row represents one valid, single-user session. Sessions with missing `user_session` values or session IDs linked to multiple users were excluded from the main funnel analysis so each session more reliably represents one user journey. :contentReference[oaicite:0]{index=0}
+
+These records were not deleted from the cleaned event table. They were kept in `cleaned_events` for transparency but excluded from session-level KPIs.
+
+---
+
+### Some purchase paths may be incomplete
+
+Some sessions showed purchases without observed cart events. These were not automatically removed because they may reflect tracking gaps, returning users, saved carts, or incomplete observed sessions.
+
+Because of this, cart completion was calculated using sessions that had both a cart event and a purchase event, rather than simply dividing total purchase sessions by cart sessions.
+
+---
+
+### Revenue is estimated from purchase event prices
+
+The dataset does not include a formal order table or order ID. A session can include multiple purchase events, so revenue was estimated by summing the `price` field for purchase events.
+
+This means revenue should be interpreted as estimated item-level purchase revenue, not confirmed order-level revenue. True order value and average order value could not be calculated.
+
+---
+
+### Missing category and brand values limit some analysis
+
+Some records had missing `category_code` and `brand` values. Missing values were labeled as `unknown` instead of being dropped, so the analysis could preserve event volume. Category and brand gap analysis excludes `unknown` where the goal is to identify actionable business categories or brands.
+
+This means category and brand findings are strongest for known categories and brands. Results involving `unknown` should be interpreted as data coverage issues, not business segments.
+
+---
+
+### Category analysis uses `main_category`
+
+The `category_code` field is a period-separated taxonomy, so the first segment was extracted as `main_category`. This made category analysis and dashboard filtering easier.
+
+This simplifies the original product taxonomy. More detailed subcategory-level patterns may be hidden because the analysis groups products into broader main categories.
+
+---
+
+### Brand and category conversion gaps are based on view-to-purchase rate
+
+The conversion gap analysis uses `view_to_purchase_rate`, calculated as:
+
+`purchase events / view events`
+
+This metric was used because the main question is whether product interest turns into purchases. It does not explain why conversion is weak. For example, weak conversion could come from pricing, product mix, product page quality, availability, or customers comparing products before buying another brand.
+
+---
+
+### Product opportunity segments are exploratory
+
+Product opportunities were assigned using percentile-based rules across product-level revenue, purchase volume, cart activity, and conversion rates. These rules helped compare products relative to other products in the dataset. :contentReference[oaicite:1]{index=1}
+
+However, many products have low event volume. Some promote candidates had only **1 to 12 views** and **1 to 2 purchases**, while some cart-friction products had only **3 to 4 cart events** and **0 purchases**. :contentReference[oaicite:2]{index=2}
+
+Because of this, the `Promote` and `Investigate Cart Friction` groups should be interpreted as candidates for testing or review, not confirmed high-impact recommendations. The strongest product-level finding is the `Protect` group, which is supported by higher revenue and purchase volume.
+
+---
+
+### Product IDs do not include product names
+
+The dataset includes `product_id`, but it does not include readable product names or product descriptions.
+
+Because of this, product-level recommendations are less interpretable than category or brand recommendations. Product IDs can identify which products to investigate, but additional product metadata would be needed to make stronger merchandising recommendations.
+
+---
+
+### Time-of-day insights are descriptive, not causal
+
+Morning and midday sessions converted better than late-night sessions, but the dataset does not include marketing campaigns, traffic sources, or promotional timing. Because of this, time-of-day findings should be treated as descriptive patterns, not proof that time of day caused higher conversion. :contentReference[oaicite:3]{index=3}
+
+These patterns are still useful for dashboard exploration and future testing.
+
+---
+
+### The analysis identifies where to investigate, not final causes
+
+The project identifies where shoppers drop off and which categories, brands, and products show weak conversion or strong revenue performance. It does not prove the exact cause of each issue.
+
+To confirm causes, the business would need additional data such as traffic source, product availability, inventory, shipping cost, discounts, product page content, reviews, search behavior, and checkout behavior.
