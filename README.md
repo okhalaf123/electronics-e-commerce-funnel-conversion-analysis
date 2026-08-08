@@ -242,3 +242,57 @@ This shows that the conversion gap is not simply caused by high traffic volume. 
 The bottom brand conversion table shows several brands with very weak view-to-purchase rates. For example, `hammer` had **2,327 views** and **0 purchases**, while `thomas`, `nokia`, `honor`, `scarlett`, and `lexmark` all had conversion rates below **1%**.
 
 These brands may have product-level issues, but they are lower priority than Samsung and Panasonic because their view volume and revenue are smaller. They are useful for monitoring, but the main conversion gap analysis should focus first on high-interest brands where weak conversion has larger business impact.
+
+### Category 3: Product Opportunities
+
+**Supporting materials:**  
+- SQL query output: `[link to product opportunity query outputs]`  
+- Dashboard screenshot: `[link to Product Opportunities dashboard screenshot]`
+
+This section answers:
+
+**Which products should be protected, promoted, or investigated based on product-level funnel behavior?**
+
+Product opportunities were identified using `product_summary`, where each row represents one product. Products were assigned to an `opportunity_segment` using percentile-based rules across revenue, purchase volume, cart activity, and conversion rates. These segments were then grouped into broader action groups:
+
+- **Protect:** revenue drivers with high revenue and high purchase volume
+- **Promote:** products with strong purchase intent or underexposed conversion strength
+- **Investigate Cart Friction:** products with cart activity but weak purchase completion
+- **Secondary:** high-interest products with weak conversion
+- **Monitor:** products that did not meet a priority segment rule
+
+#### Insight 1: Revenue is concentrated in products that should be protected.
+
+The **Protect** group was the most important action group by revenue. It included **5,345 products**, generated **$5.11M in revenue**, and accounted for **35,951 purchases**. These products also had the largest activity base, with **422,130 views** and **47,667 cart events**.
+
+The top revenue drivers were concentrated in the `computers` category. The highest-revenue product was `product_id 1821813`, which generated **$213,844.24** from **538 purchases**. Other major revenue drivers included `product_id 4099645` from `gigabyte`, with **$165,156.12** in revenue and **564 purchases**, and `product_id 3791351` from `amd`, with **$86,414.67** in revenue and **423 purchases**.
+
+These products should be protected because they already drive meaningful sales volume. The business should make sure these products remain visible, available, competitively priced, and easy to find.
+
+#### Insight 2: Promote candidates exist, but they are small-scale opportunities.
+
+The **Promote** group included **875 products**, but only generated **$11,724.63 in total revenue** from **1,159 purchases**. This means the promote group shows strong conversion behavior, but it does not currently represent a major revenue base.
+
+The top promote candidates by revenue had very small product-level volumes. For example, the highest-ranked promote candidate, `product_id 498534`, had **7 views**, **1 cart event**, **2 purchases**, and **$20.96 in revenue**. Several other promote candidates had only **1 to 12 views** and **1 to 2 purchases**.
+
+Because of the small sample sizes, these products should not be treated as proven growth drivers yet. A better interpretation is that they are **testing candidates**. They may deserve limited visibility tests, recommendation placements, or product page monitoring, but they should not receive major promotion without more data.
+
+#### Insight 3: Underexposed winners show strong conversion, but the evidence is limited by low traffic.
+
+Underexposed winners are products with low view volume but strong view-to-purchase conversion. The top underexposed winners had very small activity levels. For example, `product_id 1784833` had **6 views**, **1 purchase**, and **$19.37 in revenue**. `product_id 606429` had **2 views**, **1 purchase**, and a **50.00% view-to-purchase rate**.
+
+These products look efficient because a small number of views led to purchases. However, the low view counts mean their conversion rates can change quickly with just a few more sessions. These products are useful for identifying possible hidden demand, but they should be promoted cautiously through small tests rather than large campaigns.
+
+#### Insight 4: Cart completion risks show cart interest but no purchases.
+
+The **Investigate Cart Friction** group included **829 products**, with **6,423 views** and **960 cart events**, but **0 purchases** and **$0 revenue**. This means shoppers added these products to cart, but none of these products converted in the observed data.
+
+The top cart completion risks had small cart volumes, usually **3 to 4 cart events** each. For example, `product_id 589870` had **6 views**, **4 cart events**, and **0 purchases**, while `product_id 463960` had **18 views**, **4 cart events**, and **0 purchases**.
+
+These products may have issues with pricing, product information, availability, shipping expectations, or checkout friction. However, because the cart counts are small, they should be treated as products to review rather than definitive evidence of a major problem.
+
+#### Insight 5: Product opportunity actions should be prioritized by business impact.
+
+The action groups show a clear difference in business impact. The **Protect** group generated nearly all product revenue in the mapped results, while the **Promote** and **Investigate Cart Friction** groups were much smaller. This suggests that the strongest immediate business action is to protect existing revenue drivers, especially high-performing computer products.
+
+Promotion and cart-friction actions should be handled as secondary tests. Promote candidates can be tested with limited visibility increases, while cart completion risks can be reviewed for product-level issues. The most important recommendation is not to over-invest in low-volume products before validating that their patterns hold with more traffic.
