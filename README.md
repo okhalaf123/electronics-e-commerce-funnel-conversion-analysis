@@ -129,15 +129,15 @@ The biggest funnel drop-off occurs before shoppers add products to cart: only 8.
 - [SQL Script](sql/03_session_summary.sql)
 - SQL query output: [session_summary](data/processed/processed.zip)
 
-<p align="center">
-  <img src="dashboard/screenshots/01.png" width="550"><br>
-</p>
-
 This section answers:
 
 **Where does the shopping funnel lose the most users?**
 
 The session-level funnel was built from `session_summary`, where each row represents one valid, single-user session. Sessions with missing `user_session` values or session IDs linked to multiple users were excluded from the main funnel analysis so each session more reliably represents one user journey.
+
+<p align="center">
+  <img src="dashboard/screenshots/01.png" width="550"><br>
+</p>
 
 #### Insight 1: The largest drop-off happens before users add products to cart.
 
@@ -178,8 +178,10 @@ This suggests that shopper intent may be stronger during morning and midday sess
 ### Category 2: Conversion Gaps
 
 **Supporting materials:**  
-- SQL query output: `[link to conversion gap query outputs]`  
-- Dashboard screenshot: `[link to Conversion Gaps dashboard screenshot]`
+- SQL scripts:
+  - [Category](sql/05_category_summary.sql)
+  - [Brand](sql/06_brand_summary.sql)
+- SQL query output: [category_summary & brand_summary](data/processed/processed.zip)
 
 This section answers:
 
@@ -190,6 +192,10 @@ Category and brand conversion gaps were analyzed using event-level product behav
 `purchase events / view events`
 
 This metric shows how often product interest turns into purchases. The gap analysis excludes `unknown` category and brand values because they are not actionable business labels.
+
+<p align="center">
+  <img src="dashboard/screenshots/02.png" width="550"><br>
+</p>
 
 #### Insight 1: Electronics is the main category conversion gap.
 
