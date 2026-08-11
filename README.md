@@ -22,7 +22,7 @@ Insights and recommendations are organized around three key areas:
 
 The SQL queries used to inspect, clean, and analyze the data can be found [here](sql).
 
-An interactive Tableau dashboard used to explore funnel performance, category and brand trends, and product opportunities can be found [here](dashboard).
+An interactive Tableau dashboard used to explore funnel performance, category and brand trends, and product opportunities can be found [here](https://public.tableau.com/views/E-CommerceFunnelConversionAnalysis/FunnelOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link).
 
 ## Data Structure & Initial Checks
 
