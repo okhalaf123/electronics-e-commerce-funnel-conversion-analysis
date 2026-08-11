@@ -130,7 +130,7 @@ The biggest funnel drop-off occurs before shoppers add products to cart: only 8.
 - SQL query output: [session_summary](data/processed/processed.zip)
 
 <p align="center">
-  <img src="dashboard/screenshot/01.png" width="550"><br>
+  <img src="dashboard/screenshots/01.png" width="550"><br>
 </p>
 
 This section answers:
