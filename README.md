@@ -126,7 +126,7 @@ The biggest funnel drop-off occurs before shoppers add products to cart: only 8.
 ### Category 1: Funnel Drop-Off
 
 **Supporting materials:**  
-- SQL query output: `[link to funnel drop-off query outputs]`  
+- SQL query output: [session_summary](data/processed/processed.zip)  
 - Dashboard screenshot: `[link to Funnel Overview dashboard screenshot]`
 
 This section answers:
