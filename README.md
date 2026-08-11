@@ -260,8 +260,8 @@ These brands may have product-level issues, but they are lower priority than Sam
 ### Category 3: Product Opportunities
 
 **Supporting materials:**  
-- SQL query output: `[link to product opportunity query outputs]`  
-- Dashboard screenshot: `[link to Product Opportunities dashboard screenshot]`
+- [SQL Script](sql/04_product_summary.sql)
+- SQL query output: [product_summary](data/processed/processed.zip)
 
 This section answers:
 
@@ -274,6 +274,10 @@ Product opportunities were identified using `product_summary`, where each row re
 - **Investigate Cart Friction:** products with cart activity but weak purchase completion
 - **Secondary:** high-interest products with weak conversion
 - **Monitor:** products that did not meet a priority segment rule
+
+<p align="center">
+  <img src="dashboard/screenshots/03.png" width="700"><br>
+</p>
 
 #### Insight 1: Revenue is concentrated in products that should be protected.
 
