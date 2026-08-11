@@ -136,7 +136,7 @@ This section answers:
 The session-level funnel was built from `session_summary`, where each row represents one valid, single-user session. Sessions with missing `user_session` values or session IDs linked to multiple users were excluded from the main funnel analysis so each session more reliably represents one user journey.
 
 <p align="center">
-  <img src="dashboard/screenshots/01.png" width="550"><br>
+  <img src="dashboard/screenshots/01.png" width="700"><br>
 </p>
 
 #### Insight 1: The largest drop-off happens before users add products to cart.
@@ -194,7 +194,7 @@ Category and brand conversion gaps were analyzed using event-level product behav
 This metric shows how often product interest turns into purchases. The gap analysis excludes `unknown` category and brand values because they are not actionable business labels.
 
 <p align="center">
-  <img src="dashboard/screenshots/02.png" width="550"><br>
+  <img src="dashboard/screenshots/02.png" width="700"><br>
 </p>
 
 #### Insight 1: Electronics is the main category conversion gap.
