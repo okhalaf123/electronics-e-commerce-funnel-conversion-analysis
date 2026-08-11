@@ -20,9 +20,9 @@ Insights and recommendations are organized around three key areas:
 - **Category and Brand Conversion Gaps:** Which categories or brands generate high interest but weak conversion?
 - **Product and Visibility Opportunities:** Which products, categories, or brands show strong purchase intent and should receive more visibility?
 
-The SQL queries used to inspect, clean, and analyze the data can be found here: `[link to SQL folder]`
+The SQL queries used to inspect, clean, and analyze the data can be found [here](sql).
 
-An interactive Tableau dashboard used to explore funnel performance, category and brand trends, and product opportunities can be found here: `[link to dashboard]`
+An interactive Tableau dashboard used to explore funnel performance, category and brand trends, and product opportunities can be found [here](dashboard).
 
 ## Data Structure & Initial Checks
 
