@@ -419,7 +419,7 @@ Metrics such as ROAS, CAC, checkout abandonment, payment failure rate, true aver
 
 ### Session-level analysis excludes unreliable sessions
 
-The session-level funnel uses `session_summary`, where each row represents one valid, single-user session. Sessions with missing `user_session` values or session IDs linked to multiple users were excluded from the main funnel analysis so each session more reliably represents one user journey. :contentReference[oaicite:0]{index=0}
+The session-level funnel uses `session_summary`, where each row represents one valid, single-user session. Sessions with missing `user_session` values or session IDs linked to multiple users were excluded from the main funnel analysis so each session more reliably represents one user journey.
 
 These records were not deleted from the cleaned event table. They were kept in `cleaned_events` for transparency but excluded from session-level KPIs.
 
@@ -469,9 +469,9 @@ This metric was used because the main question is whether product interest turns
 
 ### Product opportunity segments are exploratory
 
-Product opportunities were assigned using percentile-based rules across product-level revenue, purchase volume, cart activity, and conversion rates. These rules helped compare products relative to other products in the dataset. :contentReference[oaicite:1]{index=1}
+Product opportunities were assigned using percentile-based rules across product-level revenue, purchase volume, cart activity, and conversion rates. These rules helped compare products relative to other products in the dataset.
 
-However, many products have low event volume. Some promote candidates had only **1 to 12 views** and **1 to 2 purchases**, while some cart-friction products had only **3 to 4 cart events** and **0 purchases**. :contentReference[oaicite:2]{index=2}
+However, many products have low event volume. Some promote candidates had only **1 to 12 views** and **1 to 2 purchases**, while some cart-friction products had only **3 to 4 cart events** and **0 purchases**.
 
 Because of this, the `Promote` and `Investigate Cart Friction` groups should be interpreted as candidates for testing or review, not confirmed high-impact recommendations. The strongest product-level finding is the `Protect` group, which is supported by higher revenue and purchase volume.
 
@@ -487,7 +487,7 @@ Because of this, product-level recommendations are less interpretable than categ
 
 ### Time-of-day insights are descriptive, not causal
 
-Morning and midday sessions converted better than late-night sessions, but the dataset does not include marketing campaigns, traffic sources, or promotional timing. Because of this, time-of-day findings should be treated as descriptive patterns, not proof that time of day caused higher conversion. :contentReference[oaicite:3]{index=3}
+Morning and midday sessions converted better than late-night sessions, but the dataset does not include marketing campaigns, traffic sources, or promotional timing. Because of this, time-of-day findings should be treated as descriptive patterns, not proof that time of day caused higher conversion.
 
 These patterns are still useful for dashboard exploration and future testing.
 
